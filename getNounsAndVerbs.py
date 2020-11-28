@@ -1,5 +1,9 @@
 # import spacy
 import spacy
+import wordScore
+
+wordFreq = [[]]
+i = 0
 
 # load english language model
 nlp = spacy.load('en_core_web_sm',disable=['ner','textcat'])
@@ -11,4 +15,7 @@ doc = nlp(text)
 
 for token in doc:
     if token.pos_=='NOUN' or token.pos_=='ADJ':
-        print(token.text)
+        wordFreq.append([token.text,wordScore.get_freq(token.text)])
+        i = 1
+
+print(wordFreq)
