@@ -1,11 +1,42 @@
 {% block content %}
-<h1>{{ title }}</h1>
+<!doctype html>
 
-<div>
-    <form method="POST">
-        {% csrf_token %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
 
-            Well done
-    </form>
-</div>
+        <title>The HTML5 Herald</title>
+        <meta name="description" content="The HTML5 Herald">
+        <meta name="author" content="SitePoint">
+        
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton-framework/1.1.1/skeleton.min.css">
+        <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+        
+    </head>
+
+
+
+    {% for question in questions %}
+        <div class="section values">
+            <div class="container">
+              <div class="row">
+                <div class="one-third column value">
+                  <h5 class="value-heading">{{ question.0 }}</h5>
+                  {% for ans in question.1 %}
+                  <p class="value-description"><sup> {{forloop.counter}}</sup>{{ ans }}</p>
+                  {% endfor %}
+                </div>
+                
+              </div>
+            
+            </div>
+          </div>  
+   
+    {% endfor %}
+
+
+
+
+
 {% endblock content %}

@@ -11,7 +11,7 @@ def register(request):
         title = get_word_and_definitions(res)
 
         context = {
-            'title': res,
+            'questions': title,
         }
         return render(request, 'back/showquiz.html', context)
        
