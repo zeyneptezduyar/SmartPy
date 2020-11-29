@@ -23,5 +23,4 @@ def get_definition(word):
                 definitions.append(definition['definition'])
 
     return definitions
-        
-print(get_definition("hello"))
+# print(get_definition("hello"))
