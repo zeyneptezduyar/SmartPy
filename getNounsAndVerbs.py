@@ -3,7 +3,7 @@ import spacy
 import wordScore
 
 def get_score_of_NV(text):
-    wordFreq = [[]]
+    wordFreq = []
     i = 0
 
     # load english language model
@@ -14,8 +14,10 @@ def get_score_of_NV(text):
 
     for token in doc:
         if token.pos_=='NOUN' or token.pos_=='ADJ':
-            wordFreq.append([token.text,wordScore.get_freq(token.text)])
-            i = 1
+        	freq = wordScore.get_freq(token.text)
+        	if([token.text.lower(), freq] not in wordFreq):
+        		wordFreq.append([token.text.lower(), freq])
+        	i += 1
 
     return wordFreq
 
