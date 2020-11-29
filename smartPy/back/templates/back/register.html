@@ -1,21 +1,111 @@
 {% block content %}
-<h1>{{ title }}</h1>
+<!doctype html>
 
-<div>
-    <form method="POST">
-        {% csrf_token %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
 
-            <legend>
-                Enter text
-            </legend>
-            <input type="text" style="height: 500px; width: 400px;" name="input"></input>
+        <title>The HTML5 Herald</title>
+        <meta name="description" content="The HTML5 Herald">
+        <meta name="author" content="SitePoint">
         
-        <div>
-            <button type="submit">
-                Sign up
-            </button>
-        </div>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton-framework/1.1.1/skeleton.min.css">
+        <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+        
+    </head>
+    
+    <body>
+        <script src="js/scripts.js"></script>
+        
+        <h1>{{ title }}</h1>
+<div class="section hero">
+    <div class="container">
+        <div class="row">
+        <h1>Automatic test creation!</h1>
 
-    </form>
-</div>
+        <h4>Research shows that repeated testing of your knowledge is one of the best ways to learn, but text books often lack
+          the amount of questions needed to do this effectivly. Thats where we come in! We can create automatic cue cards
+          from text that you paste into the box below and then you can use them to test yourself of the content you want to learn!
+        </h4>
+
+        <label for="exampleMessage">Learning text</label>
+        <form method="POST">
+            {% csrf_token %}
+            <textarea type="text" style="height: 500px; width: 100%;text-align: left;" name="input"></textarea>
+            <br>
+            <button class="button button-primary" type="submit">
+                Generate Test!
+            </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+    <div class="section values">
+    <div class="container">
+      <div class="row">
+        <div class="one-third column value">
+          <h2 class="value-multiplier">67%</h2>
+          <h5 class="value-heading">Purchase Increase</h5>
+          <p class="value-description">Percentage of users more likely to purchase on mobile friendly site.</p>
+        </div>
+        <div class="one-third column value">
+          <h2 class="value-multiplier">90%</h2>
+          <h5 class="value-heading">Multi-device Users</h5>
+          <p class="value-description">Most of the world accesses the internet on multiple devices.</p>
+        </div>
+        <div class="one-third column value">
+          <h2 class="value-multiplier">66%</h2>
+          <h5 class="value-heading">Sad Users</h5>
+          <p class="value-description">Percentage of users that are frustrated with page load times.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="one-third column value">
+          <h2 class="value-multiplier">67%</h2>
+          <h5 class="value-heading">Purchase Increase</h5>
+          <p class="value-description">Percentage of users more likely to purchase on mobile friendly site.</p>
+        </div>
+        <div class="one-third column value">
+          <h2 class="value-multiplier">90%</h2>
+          <h5 class="value-heading">Multi-device Users</h5>
+          <p class="value-description">Most of the world accesses the internet on multiple devices.</p>
+        </div>
+        <div class="one-third column value">
+          <h2 class="value-multiplier">66%</h2>
+          <h5 class="value-heading">Sad Users</h5>
+          <p class="value-description">Percentage of users that are frustrated with page load times.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="one-third column value">
+          <h2 class="value-multiplier">67%</h2>
+          <h5 class="value-heading">Purchase Increase</h5>
+          <p class="value-description">Percentage of users more likely to purchase on mobile friendly site.</p>
+        </div>
+        <div class="one-third column value">
+          <h2 class="value-multiplier">90%</h2>
+          <h5 class="value-heading">Multi-device Users</h5>
+          <p class="value-description">Most of the world accesses the internet on multiple devices.</p>
+        </div>
+        <div class="one-third column value">
+          <h2 class="value-multiplier">66%</h2>
+          <h5 class="value-heading">Sad Users</h5>
+          <p class="value-description">Percentage of users that are frustrated with page load times.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section hero">
+    <div class="container">
+      <div class="row">
+        <a class="button button-primary">Generate test!</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
 {% endblock content %}

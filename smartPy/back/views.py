@@ -10,7 +10,7 @@ def register(request):
         title = HaikalFunction(res)
 
         context = {
-            'title': title,
+            'title': res,
         }
         return render(request, 'back/showquiz.html', context)
        
