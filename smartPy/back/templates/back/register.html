@@ -1,0 +1,50 @@
+{% block content %}
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+
+        <title>The HTML5 Herald</title>
+        <meta name="description" content="The HTML5 Herald">
+        <meta name="author" content="SitePoint">
+        
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton-framework/1.1.1/skeleton.min.css">
+        <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+        
+    </head>
+    
+    <body>
+        <script src="js/scripts.js"></script>
+        
+        <h1>{{ title }}</h1>
+<div class="section hero">
+    <div class="container">
+        <div class="row">
+        <h1>Automatic test creation!</h1>
+
+        <h4>Research shows that repeated testing of your knowledge is one of the best ways to learn, but text books often lack
+          the amount of questions needed to do this effectivly. Thats where we come in! We can create automatic cue cards
+          from text that you paste into the box below and then you can use them to test yourself of the content you want to learn!
+        </h4>
+
+        <label for="exampleMessage">Learning text</label>
+        <form method="POST">
+            {% csrf_token %}
+            <textarea type="text" style="height: 500px; width: 100%;text-align: left;" name="input"></textarea>
+            <br>
+            <button class="button button-primary" type="submit">
+                Generate Test!
+            </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+    
+ 
+
+</body>
+</html>
+{% endblock content %}

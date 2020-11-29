@@ -1,0 +1,149 @@
+{% block content %}
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+
+        <title>The HTML5 Herald</title>
+        <meta name="description" content="The HTML5 Herald">
+        <meta name="author" content="SitePoint">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton-framework/1.1.1/skeleton.min.css">
+        <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+
+        <style>
+            .grid-container {
+              display: grid;
+              grid-template-columns: auto auto auto;
+              background-color: transparent;
+              padding: 10px;
+              border-radius: 20px;
+              width: 550px;
+              margin-bottom: 300px;
+            }
+            .grid-item {
+              background-color: #ffffff;
+              border: 1px #e4e9ee;
+              font-size: 20px;
+              text-align: center;
+              border-radius: 20px;
+              width: 550px;
+              margin-bottom: 100px;
+            }
+                        
+            .flip-card {
+            background-color: transparent;
+            text-align: center;
+            margin-left: 10px;
+            border-radius: 20px;
+            width: 90%;
+            height: 350px;
+            perspective: 1000px;
+            }
+
+            .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            border-radius: 20px;
+            }
+
+            .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+            }
+
+            .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            }
+
+            .flip-card-front {
+            background-color: rgb(255, 255, 255);
+            color: black;
+            border-radius: 20px;
+            }
+
+            .flip-card-back {
+            background-color: #2980b9;
+            color: white;
+            transform: rotateY(180deg);
+            border-radius: 20px;
+            padding-top: 20px;
+            }
+</style>
+        
+    </head>
+
+    <h1 style="text-align: center;">SmartPy</h1>
+    <h4 style="text-align: center;">Here are your flashcards, enjoy studying!</h4>
+    <h4 style="text-align: center;">YOU GOT THIS!</h4>
+<!-- 
+    {% for question in questions %}
+    <div class="section values">
+        <div class="container">              
+            <div class="one-third column value">
+                  <h5 class="value-heading">{{ question.0 }}</h5>
+                  {% for ans in question.1 %}
+                  <p class="value-description"><sup> {{forloop.counter}}</sup>{{ ans }}</p>
+                  {% endfor %}
+                </div>        
+            </div>
+        </div>  
+        {% endfor %} -->
+        <div class="grid-container">
+            {% for question in questions %}
+            <div class="grid-item">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                      <div class="flip-card-front">
+                          <p style="margin-top: 20%; font-size: 30px;"><b>{{ question.0 }}</b></p>
+                        </div>
+                        <div class="flip-card-back">
+                            {% for ans in question.1 %}
+                            <p class="value-description" style="margin-top: 5%;"><sup> {{forloop.counter}}</sup>{{ ans }}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>                
+                <!-- <div class="w3-panel w3-card" style="width: 95%; min-height: 80%; padding: 20px; border-radius: 20px;"><p><b>{{ question.0 }}</b></p>
+                    {% for ans in question.1 %}
+                    <p class="value-description"><sup> {{forloop.counter}}</sup>{{ ans }}</p>
+                    {% endfor %}
+                </div> -->
+            </div>
+            {% endfor %}
+        </div>
+        
+    <form>
+        {% csrf_token %}
+        <div style="text-align: center;margin-top: -300px;">
+            <button href="/register" class="button button-primary" type="submit" style="text-align: center; width: 400px; height: 80px; font-size: 20px;">
+                Return to home page
+            </button>
+        </div>
+    </form>
+    
+    
+    <h2 style="margin-left: 150px; margin-top: -50px;">Terms in this set: </h2>
+    <ul style="margin-left: 150px;">
+        {% for question in questions %}
+        <li><b>{{ question.0 }}</b></li>
+            {% for ans in question.1 %}
+            <sup> {{forloop.counter}}</sup>{{ ans }}</p>
+            {% endfor %}
+            {% endfor %}
+        </ul>
+
+
+{% endblock content %}
