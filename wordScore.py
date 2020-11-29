@@ -18,5 +18,3 @@ def get_freq(term):
     else:
         freq = float(response[0]['tags'][0][2:])
     return freq
-
-print(get_freq("astrocytes"))
