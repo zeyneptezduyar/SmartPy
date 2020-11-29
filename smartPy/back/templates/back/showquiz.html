@@ -8,33 +8,59 @@
         <title>The HTML5 Herald</title>
         <meta name="description" content="The HTML5 Herald">
         <meta name="author" content="SitePoint">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         
         <link rel="stylesheet" href="styles.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton-framework/1.1.1/skeleton.min.css">
         <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+
+        <style>
+            .grid-container {
+              display: grid;
+              grid-template-columns: auto auto auto;
+              background-color: transparent;
+              padding: 10px;
+              border-radius: 20px;
+            }
+            .grid-item {
+              background-color: #ffffff;
+              border: 1px #e4e9ee;
+              font-size: 20px;
+              text-align: center;
+              border-radius: 20px;
+            }
+            </style>
         
     </head>
 
-
-
+    <h1 style="text-align: center;">SmartPy</h1>
+    <h4 style="text-align: center;">Here are your flashcards, enjoy studying!</h4>
+    <h4 style="text-align: center;">YOU GOT THIS!</h4>
+<!-- 
     {% for question in questions %}
-        <div class="section values">
-            <div class="container">
-              <div class="row">
-                <div class="one-third column value">
+    <div class="section values">
+        <div class="container">              
+            <div class="one-third column value">
                   <h5 class="value-heading">{{ question.0 }}</h5>
                   {% for ans in question.1 %}
                   <p class="value-description"><sup> {{forloop.counter}}</sup>{{ ans }}</p>
                   {% endfor %}
-                </div>
-                
-              </div>
-            
+                </div>        
             </div>
-          </div>  
-   
-    {% endfor %}
-
+        </div>  
+        {% endfor %} -->
+        <div class="grid-container">
+            {% for question in questions %}
+            <div class="grid-item">
+                <div class="w3-panel w3-card" style="width: 95%; min-height: 80%; padding: 20px; border-radius: 20px;"><p><b>{{ question.0 }}</b></p>
+                {% for ans in question.1 %}
+                    <p class="value-description"><sup> {{forloop.counter}}</sup>{{ ans }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
 
 
 
