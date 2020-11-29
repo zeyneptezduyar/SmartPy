@@ -1,0 +1,11 @@
+.inputBox {
+    display:inline-block;
+    padding-bottom: 200px;
+    line-height:140%;
+}
+
+.value {
+    border-radius: 25px;
+    border: 1px solid #000000;
+    padding: 20px;
+}
