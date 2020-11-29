@@ -8,7 +8,7 @@ def register(request):
 
         res = request.POST['input']
 
-        title = HaikalFunction(res)
+        title = get_word_and_definitions(res)
 
         context = {
             'title': res,
@@ -20,10 +20,3 @@ def register(request):
             'title': "SmartPy"
         }
         return render(request, 'back/register.html', context)
-
-
-
-def HaikalFunction( s ):
-    return "hello"
-       
-
