@@ -27,7 +27,8 @@ def get_word_and_definitions(text):
     word_N_def = []
 
     for i in important_words:
-        word_N_def.append([i, get_definition(i)])
+        if(len(get_definition(i)) != 0):
+            word_N_def.append([i, get_definition(i)])
 
     return word_N_def
 
