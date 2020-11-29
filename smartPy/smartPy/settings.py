@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'back.apps.BackConfig',
     'quizes.apps.QuizesConfig',
     'django.contrib.admin',
     'django.contrib.auth',

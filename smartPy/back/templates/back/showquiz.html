@@ -1,0 +1,11 @@
+{% block content %}
+<h1>{{ title }}</h1>
+
+<div>
+    <form method="POST">
+        {% csrf_token %}
+
+            Well done
+    </form>
+</div>
+{% endblock content %}
