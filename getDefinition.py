@@ -18,10 +18,12 @@ def get_definition(word):
         definition = ""
     else:
         definition = response
-        for meanings in definition[0]['meanings']:
-            for definition in meanings['definitions']:
-                definitions.append(definition['definition'])
+        error = {"title":"No Definitions Found","message":"Sorry pal, we couldn't find definitions for the word you were looking for.","resolution":"You can try the search again at later time or head to the web instead."}
+        if(definition != error):
+            for meanings in definition[0]['meanings']:
+                for definition in meanings['definitions']:
+                    definitions.append(definition['definition'])
 
     return definitions
 
-# print(get_definition("hello"))
+# print(get_definition("brachii"))
